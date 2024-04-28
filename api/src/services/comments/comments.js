@@ -24,7 +24,7 @@ export const createComment = ({ input }) => {
 }
 
 export const deleteComment = ({ id }) => {
-  requireAuth({ roles: 'moderator' })
+  requireAuth({ roles: ['admin', 'moderator'] })
   return db.comment.delete({
     where: { id },
   })
